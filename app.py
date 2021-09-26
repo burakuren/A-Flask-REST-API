@@ -1,8 +1,6 @@
 import os
 # import re
 
-from dotenv import load_dotenv
-load_dotenv()
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
@@ -21,8 +19,7 @@ if uri.startswith("postgres://"):
 
 app = Flask(__name__)
 app.secret_key = "jose"
-app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URI")
-
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("postgresql://pmkczqfsbkouje:7d30bf85ef7ecf2dd6c7f888b27381f3cd7d6acc99996e4cf18ec0a3f753e87a@ec2-79-125-30-28.eu-west-1.compute.amazonaws.com:5432/db7spfp41d1bjh", "sqlite:///data.db")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 api = Api(app)
 
