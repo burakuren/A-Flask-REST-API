@@ -17,7 +17,7 @@ if uri.startswith("postgres://"):
 
 app = Flask(__name__)
 app.secret_key = "jose"
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("CONN_STR")
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL_NEW")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 api = Api(app)
 
